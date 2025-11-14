@@ -1,0 +1,99 @@
+[gd_scene load_steps=7 format=3 uid="uid://up88ygpyrkkk"]
+
+[ext_resource type="Texture2D" uid="uid://dvv2i8hcyipqc" path="res://objects/removed/balcao.png" id="1_8wemh"]
+[ext_resource type="Texture2D" uid="uid://cb1g3kt7hgbnu" path="res://characters/sprites/removed/employee.png" id="2_uioc6"]
+[ext_resource type="PackedScene" uid="uid://dyjdkqt5v3tts" path="res://other/drop.tscn" id="3_4rdio"]
+
+[sub_resource type="Animation" id="Animation_8wemh"]
+resource_name = "idle_employee"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Employee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(195, -199.99963), Vector2(195, -170), Vector2(195, -200)]
+}
+
+[sub_resource type="Animation" id="Animation_uioc6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Employee:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(195, -199.99963)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4rdio"]
+_data = {
+&"RESET": SubResource("Animation_uioc6"),
+&"idle_employee": SubResource("Animation_8wemh")
+}
+
+[node name="cashier" type="Sprite2D"]
+z_index = 1
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_8wemh")
+
+[node name="Employee" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(195, -199.99963)
+scale = Vector2(0.99999976, 0.99999976)
+texture = ExtResource("2_uioc6")
+
+[node name="drop1" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(814.9999, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="drop2" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(1414.9998, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="drop3" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(2014.9998, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="drop4" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(2614.9998, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="drop5" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(3214.9995, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="drop6" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(3814.9995, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="drop7" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(4414.9995, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="drop8" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(5014.9995, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="drop9" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(5614.9995, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="drop10" parent="." instance=ExtResource("3_4rdio")]
+position = Vector2(6214.9995, 194.99976)
+scale = Vector2(19.999998, 19.999998)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4rdio")
+}
+autoplay = "idle_employee"
