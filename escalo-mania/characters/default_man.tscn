@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://8ak74s57j8f5"]
+
+[ext_resource type="Texture2D" uid="uid://p4avhvplb101" path="res://characters/sprites/removed/man.png" id="1_ef3d6"]
+[ext_resource type="Script" uid="uid://cjq2xlnpp4c21" path="res://characters/scripts/customer.gd" id="1_y1l8h"]
+[ext_resource type="Texture2D" uid="uid://clwxwm6rh6mj2" path="res://ui_hud/product_indicator_removed.png" id="2_y1l8h"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ef3d6"]
+size = Vector2(320.00003, 680.0003)
+
+[node name="default_man" type="CharacterBody2D"]
+z_index = 1
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_y1l8h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 190)
+texture = ExtResource("1_ef3d6")
+
+[node name="ProductIndicator" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(0, -329.99988)
+scale = Vector2(0.74999994, 0.74999994)
+texture = ExtResource("2_y1l8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.9073465e-05, 189.99991)
+scale = Vector2(0.9999994, 0.9999994)
+shape = SubResource("RectangleShape2D_ef3d6")
+
+[node name="text" type="Label" parent="."]
+z_index = 2
+offset_left = -115.0
+offset_top = -480.0
+offset_right = 113.0
+offset_bottom = -207.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 200
+text = "00"
