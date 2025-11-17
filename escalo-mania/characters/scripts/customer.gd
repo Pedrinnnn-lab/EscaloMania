@@ -7,6 +7,7 @@ var area_ref : Array[Area2D]
 var drag_offset : Vector2
 var init_pos : Vector2
 var finish : bool = false
+var buying : bool = false
 @onready var textlabel = $text
 @onready var timer = $Timer
 
@@ -19,7 +20,7 @@ func _process(delta: float) -> void:
 	#print(area_ref)
 	if finish:
 		position.x -= 5
-	if draggable:
+	if draggable and not buying:
 		if Input.is_action_just_pressed("click"):
 			init_pos = global_position
 			drag_offset = get_global_mouse_position() - global_position
@@ -31,8 +32,10 @@ func _process(delta: float) -> void:
 			globalVar.is_dragging = false
 			var tween = get_tree().create_tween()
 			if is_inside_drop > 0 and not area_ref.is_empty():
+				if area_ref[0].is_in_group("first"):
+						timer.start()
+						buying = true
 				tween.tween_property(self,"global_position",area_ref[0].global_position + Vector2(0,-75),0.2).set_ease(Tween.EASE_OUT)
-				timer.start()
 			else:
 				tween.tween_property(self,"global_position",init_pos,0.2).set_ease(Tween.EASE_OUT)
 
