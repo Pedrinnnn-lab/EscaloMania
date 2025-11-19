@@ -22,9 +22,17 @@ Dialogic="*res://addons/dialogic/Core/DialogicGameHandler.gd"
 
 [dialogic]
 
-directories/dch_directory={}
-directories/dtl_directory={}
-layout/style_directory={}
+directories/dch_directory={
+"employer": "res://dialogue/employer.dch"
+}
+directories/dtl_directory={
+"timelineteste": "res://dialogue/timelineteste.dtl"
+}
+layout/style_directory={
+"": "res://dialogue/speaker_style.tres",
+"default_style": "res://dialogue/default_style.tres",
+"speaker_style": "res://dialogue/speaker_style.tres"
+}
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01
 text/initial_text_reveal_skippable=true
@@ -64,9 +72,10 @@ audio/channel_defaults={
 "volume": 0.0
 }
 }
-layout/style_list=[]
-layout/default_style="Default"
+layout/style_list=["res://dialogue/speaker_style.tres", "res://dialogue/default_style.tres"]
+layout/default_style="res://dialogue/speaker_style.tres"
 glossary/default_case_sensitive=true
+variables={}
 
 [display]
 

@@ -48,18 +48,7 @@ enum NameLabelColorModes {GLOBAL_COLOR, CHARACTER_COLOR, CUSTOM_COLOR}
 @export var portrait_position: LimitedAlignments = LimitedAlignments.LEFT
 @export var portrait_bg_modulate: Color = Color(0, 0, 0, 0.5137255191803)
 
-@export_group('Sounds')
-@export_subgroup('Typing Sounds')
-@export var typing_sounds_enabled: bool = true
-@export var typing_sounds_mode: DialogicNode_TypeSounds.Modes = DialogicNode_TypeSounds.Modes.INTERRUPT
-@export_dir var typing_sounds_sounds_folder: String = "res://addons/dialogic/Example Assets/sound-effects/"
-@export_file("*.wav", "*.ogg", "*.mp3") var typing_sounds_end_sound: String = ""
-@export_range(1, 999, 1) var typing_sounds_every_nths_character: int = 1
-@export_range(0.01, 4, 0.01) var typing_sounds_pitch: float = 1.0
-@export_range(0.0, 3.0) var typing_sounds_pitch_variance: float = 0.0
-@export_range(-80, 24, 0.01) var typing_sounds_volume: float = -10
-@export_range(0.0, 10) var typing_sounds_volume_variance: float = 0.0
-@export var typing_sounds_ignore_characters: String = " .,!?"
+
 ## Called by dialogic whenever export overrides might change
 func _apply_export_overrides() -> void:
 	## FONT SETTINGS
