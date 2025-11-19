@@ -6,6 +6,7 @@ var is_inside_drop : int = 0
 var area_ref : Array[Area2D]
 var drag_offset : Vector2
 var init_pos : Vector2
+var scale_init : Vector2
 var finish : bool = false
 var buying : bool = false
 @onready var textlabel = $text
@@ -15,6 +16,7 @@ var buying : bool = false
 func _ready() -> void:
 	numProducts = randi_range(1,15)
 	textlabel.text = str(numProducts)
+	scale_init = scale
 
 func _process(delta: float) -> void:
 	#print(area_ref)
@@ -42,12 +44,12 @@ func _process(delta: float) -> void:
 func _on_area_2d_mouse_entered() -> void:
 	if not globalVar.is_dragging:
 		draggable = true
-		scale = scale * 1.1
+		scale = scale_init * 1.1
 
 func _on_area_2d_mouse_exited() -> void:
 	if not globalVar.is_dragging:
 		draggable = false
-		scale = scale / 1.1
+		scale = scale_init
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("drop"):
@@ -71,5 +73,9 @@ func _on_timer_timeout() -> void:
 		finish = true
 
 func _on_visible_on_screen_enabler_2d_screen_exited() -> void:
-	queue_free()
-	#print("saiu")
+	if finish:
+		queue_free()
+		print("free")
+	else:
+		position = init_pos
+		scale = scale_init
