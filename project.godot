@@ -30,8 +30,8 @@ directories/dtl_directory={
 }
 layout/style_directory={
 "": "res://dialogue/speaker_style.tres",
-"default_style": "res://dialogue/default_style.tres",
-"speaker_style": "res://dialogue/speaker_style.tres"
+"MyStyle": "res://dialogue/speaker_style.tres",
+"default_style": "res://dialogue/default_style.tres"
 }
 extensions_folder="res://addons/dialogic_additions"
 text/letter_speed=0.01

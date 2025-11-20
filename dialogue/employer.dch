@@ -12,9 +12,9 @@
 },
 &"default_portrait": "default",
 &"description": "Dono das lojas responsável pelo tutorial",
-&"display_name": "Chefe",
+&"display_name": "Senhor Osvaldo",
 &"mirror": false,
-&"nicknames": [""],
+&"nicknames": ["SO"],
 &"offset": Vector2(0, 0),
 &"portraits": {
 "default": {
